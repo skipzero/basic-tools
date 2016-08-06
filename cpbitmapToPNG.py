@@ -12,7 +12,7 @@ except:
 with open(cpbitmap) as f:
     contents = f.read()
 
-   
+
 unk1, width, height, unk2, unk3, unk4 = struct.unpack('<6i', contents[-24:])
-im = Image.fromstring('RGBA', (width,height), contents, 'raw', 'RGBA', 0, 1)
+im = Image.frombytes('RGBA', (width,height), contents, 'raw', 'RGBA', 0, 1)
 im.save(outputfile)
